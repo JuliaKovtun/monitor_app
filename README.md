@@ -19,15 +19,9 @@ git clone https://github.com/JuliaKovtun/monitor_app.git
 cd monitor_app
 ```
 
-### **🔹 Step 2: Build the Docker Containers**
-Run the following command to build the services:
+### **🔹 Step 2:  Build the Docker Containers and start the Application**
 ```sh
-docker-compose build
-```
-
-### **🔹 Step 3: Start the Application**
-```sh
-docker-compose up
+docker-compose up --build
 ```
 This will:
 - Start the **Rails API** on port `3000`
