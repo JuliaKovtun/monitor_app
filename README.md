@@ -1,6 +1,6 @@
 # **URL Health Monitor**
 
-This repository contains a **frontend** (React) and a **backend** (Ruby on Rails) application, both connected via **Docker**.
+This repository contains a [**frontend** (React)](https://github.com/JuliaKovtun/url_monitor_react_app) and a [**backend** (Ruby on Rails)](https://github.com/JuliaKovtun/url_health_monitor) application, both connected via **Docker**. 
 
 ## **🛠 Tech Stack**
 - **Frontend:** React (Vite)
