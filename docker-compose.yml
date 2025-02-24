@@ -1,0 +1,41 @@
+version: "3.9"
+
+services:
+  app:
+    build: .
+    container_name: myapp_container
+    depends_on:
+      - db
+      - redis
+    ports:
+      - "3000:3000"  # Rails API
+      - "5173:5173"  # Vite Frontend
+    environment:
+      DATABASE_URL: postgres://postgres:password@db:5432/myapp_development
+      REDIS_URL: redis://redis_cache:6379/0
+      REDIS_CACHE_URL: redis://redis_cache:6379/1
+      RAILS_ENV: development
+    volumes:
+      - .:/app
+      - /app/frontend/node_modules
+
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: myapp_development
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:latest
+    container_name: redis_cache
+    ports:
+      - "6379:6379"
+
+volumes:
+  pg_data:
